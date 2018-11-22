@@ -9,10 +9,15 @@ import { ShoppinglistService } from './shopping-list.service';
 })
 export class ShoppingListComponent implements OnInit {
 ingredients :Ingredient[];
+
   constructor(private shoppingservice: ShoppinglistService) { }
 
   ngOnInit() {
     this.ingredients=this.shoppingservice.getIngredients();
+    
   }
+onEditItem(i:number){
+  this.shoppingservice.startedediting.next(i);
+}
 
 }

@@ -14,11 +14,23 @@ export class RecipeService{
       ];
       constructor(private slservice:ShoppinglistService){};
     getRecipe (){
-        return this.recipes.slice();
+        return this.recipes;
+    }
+    setRecipe (recipes:Recipe[]){
+         this.recipes =recipes;
     }
     getrecipe(id:number){
         return this.recipes[id];
     }
+    addRecipe(recipe:Recipe){
+        this.recipes.push(recipe);
+    }
+    updateRecipe(index:number,recipe:Recipe){
+        this.recipes[index]=recipe;
+    }
+    deleterecipe(id:number){
+        this.recipes.splice(id,1);
+      }
     AddingredientstoShop(ingredients:Ingredient[]){
         this.slservice.addingredients(ingredients);
     }
